@@ -47,10 +47,12 @@ public class ZHCoapService extends Service {
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		Serializable serializable=intent.getSerializableExtra(Const.KEY_CMD);
+		Log.d(TAG, "onStartCommand1");
 		if(serializable != null && serializable instanceof ICmd){
 			ICmd cmd=(ICmd) serializable;
 			if(mDataObserve != null){
 				mDataObserve.change(cmd.getCmdString());
+				Log.d(TAG, "onStartCommand2");
 			}
 		}
 		return START_STICKY;
@@ -80,6 +82,7 @@ public class ZHCoapService extends Service {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		Log.d(TAG, "CoapServer start2");
 	}
 	
 	/**

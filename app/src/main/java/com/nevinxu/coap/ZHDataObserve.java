@@ -1,5 +1,7 @@
 package com.nevinxu.coap;
 
+import android.util.Log;
+
 import org.eclipse.californium.core.CoapResource;
 import org.eclipse.californium.core.coap.CoAP.ResponseCode;
 import org.eclipse.californium.core.coap.CoAP.Type;
@@ -18,8 +20,10 @@ public class ZHDataObserve extends CoapResource {
 	public  void change(String msg){
 		this.msg=msg;
 		if(getObserverCount()>0){
+			Log.d("111", "change1");
 			changed();
 		}
+		Log.d("111", "change2");
 	}
 	@Override
 	public void handleGET(CoapExchange exchange) {

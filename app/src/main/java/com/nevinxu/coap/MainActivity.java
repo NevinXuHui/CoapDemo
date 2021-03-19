@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -43,6 +44,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	private void startCoapService(){
 		startService(new Intent(this,ZHCoapService.class));
 	}
+
 	private void send(ICmd cmd){
 		Intent intnet=new Intent(this,ZHCoapService.class);
 		intnet.putExtra(Const.KEY_CMD, cmd);
@@ -53,6 +55,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		switch (v.getId()) {
 		case R.id.btnPlay:
 			send(new CmdPlay());
+			Log.d("btnPlay","Send");
 			break;
 		case R.id.btnNext:
 			send(new CmdNext());
