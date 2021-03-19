@@ -28,7 +28,7 @@ public class ZHQueryResource extends CoapResource {
 		String reqText=exchange.getRequestText();
 		String reqQueryString=exchange.getRequestOptions().getUriQueryString();
 		handleRequest(reqText, reqQueryString);
-		exchange.respond(ResponseCode.CONTENT, "{\"code\":200,\"msg\":\"ok\"}", MediaTypeRegistry.APPLICATION_JSON);
+		exchange.respond(ResponseCode.CONTENT, "{\"code\":201,\"msg\":\"ok\"}", MediaTypeRegistry.APPLICATION_JSON);
 	}
 	
 	private void handleRequest(String reqText,String reqQueryString){
